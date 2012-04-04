@@ -8,7 +8,7 @@ public class Main {
 	
 	public static int w = 600;
 	public static int h = 400;
-	public static String version = "1.0";
+	public static String version = "1.1";
 	
 	public static void main(String args[]){
 		f.setSize(w, h);
