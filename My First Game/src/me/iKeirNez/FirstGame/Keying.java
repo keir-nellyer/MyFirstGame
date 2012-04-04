@@ -21,6 +21,7 @@ public class Keying extends JPanel {
 	public boolean left = false;
 	public boolean forward = false;
 	public boolean backward = false;
+	public boolean respawn = false;
 	
 	public Keying(Display f, Images i){
 		character = new Rectangle(spawnX, spawnY, charW, charH);
@@ -45,8 +46,7 @@ public class Keying extends JPanel {
 				}
 				
 				if (e.getKeyCode() == KeyEvent.VK_ENTER){
-					character.x = spawnX;
-					character.y = spawnY;
+					respawn = true;
 				}
 				
 			}
@@ -66,6 +66,10 @@ public class Keying extends JPanel {
 				
 				if (e.getKeyCode() == KeyEvent.VK_S){
 					backward = false;
+				}
+				
+				if (e.getKeyCode() == KeyEvent.VK_ENTER){
+					respawn = false;
 				}
 			}
 			
@@ -94,9 +98,14 @@ public class Keying extends JPanel {
 			character.y += 1;
 		}
 		
+		if(respawn){
+			character.x = spawnX;
+			character.y = spawnY;
+		}
+		
 		g.setColor(Color.WHITE);
 		g.setFont(font);
-		g.drawString(("iKeirNez's First Game Version " + Main.version) , 180, 180);
+		g.drawString(("iKeirNez's First Game Version " + Main.version) , 270, 360);
 		repaint();
 	}
 }
