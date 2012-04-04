@@ -12,13 +12,16 @@ public class Keying extends JPanel {
 	public int charW = 24;
 	public int charH = 36;
 	
+	public int spawnX = 180;
+	public int spawnY = 180;
+	
 	public boolean right = false;
 	public boolean left = false;
 	public boolean forward = false;
 	public boolean backward = false;
 	
 	public Keying(Display f, Images i){
-		character = new Rectangle(180, 180, charW, charH);
+		character = new Rectangle(spawnX, spawnY, charW, charH);
 		
 		f.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e){
@@ -38,6 +41,7 @@ public class Keying extends JPanel {
 				if (e.getKeyCode() == KeyEvent.VK_S){
 					backward = true;
 				}
+				
 			}
 			
 			public void keyReleased(KeyEvent e){
@@ -82,7 +86,7 @@ public class Keying extends JPanel {
 		if (backward){
 			character.y += 1;
 		}
-		
 		repaint();
+		/*g.drawString(("iKeirNez's First Game Version " + Main.version) , 180, 180);*/
 	}
 }
