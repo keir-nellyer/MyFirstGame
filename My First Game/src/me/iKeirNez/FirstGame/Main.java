@@ -12,7 +12,7 @@ public class Main {
 		f.setResizable(true);
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setTitle("iKeirNez's First Java Game");
+		f.setTitle("iKeirNez's First Java Game - Version 1.0");
 		f.setLocationRelativeTo(null);
 		f.setAlwaysOnTop(false);
 	}
