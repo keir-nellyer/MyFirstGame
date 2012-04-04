@@ -105,7 +105,7 @@ public class Keying extends JPanel {
 		
 		g.setColor(Color.WHITE);
 		g.setFont(font);
-		g.drawString(("iKeirNez's First Game Version " + Main.version) , 270, 360);
+		g.drawString(("iKeirNez's First Game Version " + Main.version) , 266, 360);
 		repaint();
 	}
 }
