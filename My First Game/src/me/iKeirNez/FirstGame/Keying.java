@@ -9,7 +9,7 @@ public class Keying extends JPanel {
 	
 	public Rectangle character;
 	
-	Font font = new Font("Courier", Font.TRUETYPE_FONT,20);
+	Font font = new Font("Comic Sans MS", Font.TRUETYPE_FONT,20);
 	
 	public int charW = 24;
 	public int charH = 36;
