@@ -9,6 +9,8 @@ public class Keying extends JPanel {
 	
 	public Rectangle character;
 	
+	Font font = new Font("Courier", Font.TRUETYPE_FONT,20);
+	
 	public int charW = 24;
 	public int charH = 36;
 	
@@ -91,7 +93,10 @@ public class Keying extends JPanel {
 		if (backward){
 			character.y += 1;
 		}
+		
+		g.setColor(Color.WHITE);
+		g.setFont(font);
+		g.drawString(("iKeirNez's First Game Version " + Main.version) , 180, 180);
 		repaint();
-		//g.drawString(("iKeirNez's First Game Version " + Main.version) , 180, 180);
 	}
 }
