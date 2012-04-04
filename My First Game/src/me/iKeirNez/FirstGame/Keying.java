@@ -42,6 +42,11 @@ public class Keying extends JPanel {
 					backward = true;
 				}
 				
+				if (e.getKeyCode() == KeyEvent.VK_ENTER){
+					character.x = spawnX;
+					character.y = spawnY;
+				}
+				
 			}
 			
 			public void keyReleased(KeyEvent e){
@@ -87,6 +92,6 @@ public class Keying extends JPanel {
 			character.y += 1;
 		}
 		repaint();
-		/*g.drawString(("iKeirNez's First Game Version " + Main.version) , 180, 180);*/
+		//g.drawString(("iKeirNez's First Game Version " + Main.version) , 180, 180);
 	}
 }
