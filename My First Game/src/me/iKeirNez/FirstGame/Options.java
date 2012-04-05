@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 public class Options {
 	
 	// Version of the "game"
-	public static double version = 1.2;
+	public static double version = 0.2;
 	
 	// Width and Height of the Rectangle
 	public static int CharacterWidth = 24;
