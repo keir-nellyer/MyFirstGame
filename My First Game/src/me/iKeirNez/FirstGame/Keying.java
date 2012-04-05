@@ -22,6 +22,7 @@ public class Keying extends JPanel {
 	public boolean forward = false;
 	public boolean backward = false;
 	public boolean respawn = false;
+	public boolean invertColors = false;
 	
 	public Keying(Display f, Images i){
 		character = new Rectangle(spawnX, spawnY, charW, charH);
@@ -47,6 +48,14 @@ public class Keying extends JPanel {
 				
 				if (e.getKeyCode() == KeyEvent.VK_ENTER){
 					respawn = true;
+				}
+				
+				if (e.getKeyCode() == KeyEvent.VK_I){
+					if (invertColors){
+						invertColors = false;
+					} else {
+						invertColors = true;
+					}
 				}
 				
 			}
@@ -78,8 +87,13 @@ public class Keying extends JPanel {
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		this.setBackground(Options.background);
-		g.setColor(Options.rectColor);
+		if (invertColors){
+			this.setBackground(Options.rectColor);
+			g.setColor(Options.background);
+		} else {
+			this.setBackground(Options.background);
+			g.setColor(Options.rectColor);
+		}
 		g.fillRect(character.x, character.y, character.width, character.height);
 		
 		if(right){
