@@ -9,13 +9,13 @@ public class Keying extends JPanel {
 	
 	public Rectangle character;
 	
-	Font font = new Font("Comic Sans MS", Font.TRUETYPE_FONT,20);
+	Font font = new Font(Options.font, Font.TRUETYPE_FONT,Options.fontSize);
 	
-	public int charW = 24;
-	public int charH = 36;
+	public int charW = Options.CharacterWidth;
+	public int charH = Options.CharacterHeight;
 	
-	public int spawnX = 180;
-	public int spawnY = 180;
+	public int spawnX = Options.spawnX;
+	public int spawnY = Options.spawnY;
 	
 	public boolean right = false;
 	public boolean left = false;
@@ -52,23 +52,23 @@ public class Keying extends JPanel {
 			}
 			
 			public void keyReleased(KeyEvent e){
-				if (e.getKeyCode() == KeyEvent.VK_D){
+				if (e.getKeyCode() == Options.rightControl){
 					right = false;
 				}
 				
-				if (e.getKeyCode() == KeyEvent.VK_A){
+				if (e.getKeyCode() == Options.leftControl){
 					left = false;
 				}
 				
-				if (e.getKeyCode() == KeyEvent.VK_W){
+				if (e.getKeyCode() == Options.forwardControl){
 					forward = false;
 				}
 				
-				if (e.getKeyCode() == KeyEvent.VK_S){
+				if (e.getKeyCode() == Options.backwardControl){
 					backward = false;
 				}
 				
-				if (e.getKeyCode() == KeyEvent.VK_ENTER){
+				if (e.getKeyCode() == Options.respawnControl){
 					respawn = false;
 				}
 			}
@@ -78,8 +78,8 @@ public class Keying extends JPanel {
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		this.setBackground(Color.BLACK);
-		g.setColor(Color.RED);
+		this.setBackground(Options.background);
+		g.setColor(Options.rectColor);
 		g.fillRect(character.x, character.y, character.width, character.height);
 		
 		if(right){
@@ -103,9 +103,10 @@ public class Keying extends JPanel {
 			character.y = spawnY;
 		}
 		
-		g.setColor(Color.WHITE);
-		g.setFont(font);
-		g.drawString(("iKeirNez's First Game Version " + Main.version) , 266, 360);
 		repaint();
+		
+		g.setColor(Options.fontColor);
+		g.setFont(font);
+		g.drawString((Options.text + Main.version) , Options.textX, Options.textY);
 	}
 }
