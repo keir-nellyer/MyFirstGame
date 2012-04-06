@@ -24,67 +24,6 @@ public class Keying extends JPanel {
 	public boolean respawn = false;
 	public boolean invertColors = false;
 	
-	public Keying(Display f, Images i){
-		character = new Rectangle(spawnX, spawnY, charW, charH);
-		
-		f.addKeyListener(new KeyAdapter() {
-			public void keyPressed(KeyEvent e){
-				
-				if (e.getKeyCode() == KeyEvent.VK_D){
-					right = true;
-				}
-				
-				if (e.getKeyCode() == KeyEvent.VK_A){
-					left = true;
-				}
-				
-				if (e.getKeyCode() == KeyEvent.VK_W){
-					forward = true;
-				}
-				
-				if (e.getKeyCode() == KeyEvent.VK_S){
-					backward = true;
-				}
-				
-				if (e.getKeyCode() == KeyEvent.VK_ENTER){
-					respawn = true;
-				}
-				
-				if (e.getKeyCode() == KeyEvent.VK_I){
-					if (invertColors){
-						invertColors = false;
-					} else {
-						invertColors = true;
-					}
-				}
-				
-			}
-			
-			public void keyReleased(KeyEvent e){
-				if (e.getKeyCode() == Options.rightControl){
-					right = false;
-				}
-				
-				if (e.getKeyCode() == Options.leftControl){
-					left = false;
-				}
-				
-				if (e.getKeyCode() == Options.forwardControl){
-					forward = false;
-				}
-				
-				if (e.getKeyCode() == Options.backwardControl){
-					backward = false;
-				}
-				
-				if (e.getKeyCode() == Options.respawnControl){
-					respawn = false;
-				}
-			}
-			
-		});
-	}
-	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		if (invertColors){
@@ -101,7 +40,7 @@ public class Keying extends JPanel {
 		}
 		
 		if (left){
-			character.x -=1;
+			character.x -= 1;
 		}
 		
 		if (forward){
@@ -117,10 +56,82 @@ public class Keying extends JPanel {
 			character.y = spawnY;
 		}
 		
-		repaint();
-		
 		g.setColor(Options.fontColor);
 		g.setFont(font);
 		g.drawString((Options.text + Main.version) , Options.textX, Options.textY);
 	}
+	
+	public Keying(Display f, Images i){
+		character = new Rectangle(spawnX, spawnY, charW, charH);
+		
+		f.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e){
+				
+				if (e.getKeyCode() == KeyEvent.VK_D){
+					right = true;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == KeyEvent.VK_A){
+					left = true;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == KeyEvent.VK_W){
+					forward = true;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == KeyEvent.VK_S){
+					backward = true;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == KeyEvent.VK_ENTER){
+					respawn = true;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == KeyEvent.VK_I){
+					if (invertColors){
+						invertColors = false;
+						repaint();
+					} else {
+						invertColors = true;
+						repaint();
+					}
+				}
+				
+			}
+			
+			public void keyReleased(KeyEvent e){
+				if (e.getKeyCode() == Options.rightControl){
+					right = false;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == Options.leftControl){
+					left = false;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == Options.forwardControl){
+					forward = false;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == Options.backwardControl){
+					backward = false;
+					repaint();
+				}
+				
+				if (e.getKeyCode() == Options.respawnControl){
+					respawn = false;
+					repaint();
+				}
+			}
+			
+		});
+	}
+	
 }
