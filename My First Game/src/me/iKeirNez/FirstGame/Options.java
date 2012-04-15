@@ -44,5 +44,8 @@ public class Options {
 	// Background and Rectangle Color Settings
 	public static Color background = Color.BLACK;
 	public static Color rectColor = Color.RED;
+	
+	// Movement Speed
+	public static int speed = 1;
 
 }

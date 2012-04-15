@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Display extends JFrame {
-	
+	private static final long serialVersionUID = 1L;
 	public JPanel jp = (JPanel) getGlassPane();
 	public Images i;
 	public Keying k;

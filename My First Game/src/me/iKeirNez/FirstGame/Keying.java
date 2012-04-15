@@ -6,7 +6,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Keying extends JPanel {
-	
+	private static final long serialVersionUID = 1L;
+
 	public Rectangle character;
 	
 	Font font = new Font(Options.font, Font.TRUETYPE_FONT,Options.fontSize);
@@ -36,19 +37,19 @@ public class Keying extends JPanel {
 		g.fillRect(character.x, character.y, character.width, character.height);
 		
 		if(right){
-			character.x += 1;
+			character.x += Options.speed;
 		}
 		
 		if (left){
-			character.x -= 1;
+			character.x -= Options.speed;
 		}
 		
 		if (forward){
-			character.y -= 1;
+			character.y -= Options.speed;
 		}
 		
 		if (backward){
-			character.y += 1;
+			character.y += Options.speed;
 		}
 		
 		if(respawn){
