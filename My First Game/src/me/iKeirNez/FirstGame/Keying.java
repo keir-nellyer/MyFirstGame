@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class Keying extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +26,8 @@ public class Keying extends JPanel {
 	public boolean backward = false;
 	public boolean respawn = false;
 	public boolean invertColors = false;
+	public boolean mouseActive = false;
+	public Point mouse;
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -55,6 +59,16 @@ public class Keying extends JPanel {
 		if(respawn){
 			character.x = spawnX;
 			character.y = spawnY;
+		}
+		
+		if (mouseActive){
+			g.setColor(Options.fontColor);
+			g.setFont(font);
+			g.drawString(("Mouse Control Activated") , 355, 360);
+		} else {
+			g.setColor(Options.fontColor);
+			g.setFont(font);
+			g.drawString(("Keyboard Control Activated") , 328, 360);
 		}
 		
 		repaint();
@@ -105,6 +119,14 @@ public class Keying extends JPanel {
 					}
 				}
 				
+				if (e.getKeyCode() == KeyEvent.VK_M){
+					if (mouseActive){
+						mouseActive = false;
+					} else {
+						mouseActive = true;
+					}
+				}
+				
 			}
 			
 			public void keyReleased(KeyEvent e){
@@ -131,6 +153,17 @@ public class Keying extends JPanel {
 				if (e.getKeyCode() == Options.respawnControl){
 					respawn = false;
 					//repaint();
+				}
+			}
+			
+		});
+		f.addMouseMotionListener(new MouseMotionAdapter() {
+			
+			public void mouseMoved(MouseEvent e){
+				mouse = new Point(e.getX() -15, e.getY() -35);
+				if (mouseActive){
+					character.x = mouse.x;
+					character.y = mouse.y;
 				}
 			}
 			
