@@ -75,7 +75,7 @@ public class Keying extends JPanel {
 		
 		g.setColor(Options.fontColor);
 		g.setFont(font);
-		g.drawString(("Version " + Main.version) , 5, 20);
+		g.drawString(("Version " + Main.version) , 0, 17);
 	}
 	
 	public Keying(Display f, Images i){
