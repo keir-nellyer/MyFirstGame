@@ -33,8 +33,7 @@ public class Options {
 	// Allows the user to resize the screen
 	public static boolean resizable = true;
 	
-	// About at the Bottom Right of Screen
-	public static String text = "iKeirNez's First Game - Version ";
+	// About at the Top Left of Screen
 	public static String font = "Comic Sans MS";
 	public static int fontSize = 20;
 	public static Color fontColor = Color.WHITE;
@@ -44,9 +43,6 @@ public class Options {
 	 * public static int textX = 266;
 	 * public static int textY = 360;
 	 */
-	
-	public static int textX = 5;
-	public static int textY = 20;
 	
 	// Background and Rectangle Color Settings
 	public static Color background = Color.BLACK;
