@@ -57,6 +57,8 @@ public class Keying extends JPanel {
 			character.y = spawnY;
 		}
 		
+		repaint();
+		
 		g.setColor(Options.fontColor);
 		g.setFont(font);
 		g.drawString((Options.text + Main.version) , Options.textX, Options.textY);
@@ -70,36 +72,36 @@ public class Keying extends JPanel {
 				
 				if (e.getKeyCode() == KeyEvent.VK_D){
 					right = true;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == KeyEvent.VK_A){
 					left = true;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == KeyEvent.VK_W){
 					forward = true;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == KeyEvent.VK_S){
 					backward = true;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == KeyEvent.VK_ENTER){
 					respawn = true;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == KeyEvent.VK_I){
 					if (invertColors){
 						invertColors = false;
-						repaint();
+						//repaint();
 					} else {
 						invertColors = true;
-						repaint();
+						//repaint();
 					}
 				}
 				
@@ -108,27 +110,27 @@ public class Keying extends JPanel {
 			public void keyReleased(KeyEvent e){
 				if (e.getKeyCode() == Options.rightControl){
 					right = false;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == Options.leftControl){
 					left = false;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == Options.forwardControl){
 					forward = false;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == Options.backwardControl){
 					backward = false;
-					repaint();
+					//repaint();
 				}
 				
 				if (e.getKeyCode() == Options.respawnControl){
 					respawn = false;
-					repaint();
+					//repaint();
 				}
 			}
 			
