@@ -38,8 +38,15 @@ public class Options {
 	public static String font = "Comic Sans MS";
 	public static int fontSize = 20;
 	public static Color fontColor = Color.WHITE;
-	public static int textX = 266;
-	public static int textY = 360;
+	
+	/*
+	 * Old code!
+	 * public static int textX = 266;
+	 * public static int textY = 360;
+	 */
+	
+	public static int textX = 5;
+	public static int textY = 20;
 	
 	// Background and Rectangle Color Settings
 	public static Color background = Color.BLACK;
